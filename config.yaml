@@ -1,0 +1,46 @@
+# Конфигурация аналитического инструмента
+
+# Настройки данных
+data:
+  input_folder: "data/input"
+  output_folder: "data/output"
+  file_encoding: "utf-8"
+
+# Колонки для анализа (можно настроить под вашу структуру)
+columns:
+  branch: "филиал"
+  actual_gmv: "GMV ФАКТ М-1 (Ноябрь)"
+  plan_gmv: "GMV ПЛАН ДЕКАБРЬ"
+  fact_december: "Факт ДЕКАБРЬ СС"
+  branch_expense: "Опер расход филиала ФАКТ НОЯБРЬ"
+  branch_expense_plan: "Опер расход филиала ПЛАН ДЕКАБРЬ"
+
+# Пороговые значения для детекции инсайтов
+insights:
+  # Отклонение от плана (%)
+  plan_deviation_threshold: 15
+  # Критическое отклонение (%)
+  critical_deviation: 25
+  # Минимальный процент выполнения плана для "хороших" показателей
+  good_performance: 95
+  # Минимальный рост для выделения трендов (%)
+  growth_threshold: 20
+  # Топ филиалов для анализа
+  top_n: 10
+
+# Настройки отчетов
+reports:
+  output_folder: "reports"
+  format: ["html", "excel", "txt"]
+  include_charts: true
+  language: "ru"
+
+# Настройки визуализации
+visualization:
+  chart_style: "seaborn"
+  figure_size: [14, 8]
+  dpi: 100
+  colors:
+    positive: "#2ecc71"
+    negative: "#e74c3c"
+    neutral: "#3498db"
